@@ -15,7 +15,6 @@ from .logger import logger
 from .mcp import MCPUtil
 from .model_settings import ModelSettings
 from .models.interface import Model
-from .run import DEFAULT_MAX_TURNS
 from .run_context import RunContextWrapper, TContext
 from .tool import FunctionToolResult, Tool, function_tool
 from .util import _transforms
@@ -185,7 +184,7 @@ class Agent(Generic[TContext]):
         tool_name: str | None,
         tool_description: str | None,
         custom_output_extractor: Callable[[RunResult], Awaitable[str]] | None = None,
-        max_turns: int = DEFAULT_MAX_TURNS,
+        max_turns: int = 10,
     ) -> Tool:
         """Transform this agent into a tool, callable by other agents.
 
